@@ -36,7 +36,7 @@ export function createPost(post: NewPost) {
 export function getPost(slug: string) {
   const filepath = path.join(postsPath, `${slug}.md`);
   // const file = readFileSync(filepath);
-  const file = readFileSync(join(__dirname, 'posts', '90s-mix-cdr.md'));
+  const file = readFileSync(join(__dirname, '..', 'posts', '90s-mix-cdr.md'));
   const { attributes, body } = parseFrontMatter(file.toString());
   invariant(
     isValidPostAttributes(attributes),
