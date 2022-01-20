@@ -13,7 +13,7 @@ export type PostMarkdownAttributes = {
   title: string;
 };
 
-const postsPath = path.join(__dirname, '../../../posts');
+const postsPath = path.join(__dirname, 'posts', '90s-mix-cdr.md');
 
 function isValidPostAttributes(
   attributes: any
@@ -34,7 +34,7 @@ export function createPost(post: NewPost) {
 }
 
 export function getPost(slug: string) {
-  const filepath = path.join(postsPath, slug + '.md');
+  const filepath = path.join(postsPath);
   const file = readFileSync(filepath);
   const { attributes, body } = parseFrontMatter(file.toString());
   invariant(
