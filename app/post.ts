@@ -1,4 +1,4 @@
-import path from 'path';
+import path, { join } from 'path';
 import parseFrontMatter from 'front-matter';
 import { readFileSync, readdirSync, writeFileSync } from 'fs';
 import invariant from 'tiny-invariant';
@@ -35,7 +35,8 @@ export function createPost(post: NewPost) {
 
 export function getPost(slug: string) {
   const filepath = path.join(postsPath, `${slug}.md`);
-  const file = readFileSync(filepath);
+  // const file = readFileSync(filepath);
+  const file = readFileSync(join(__dirname, 'posts', '90s-mix-cdr.md'));
   const { attributes, body } = parseFrontMatter(file.toString());
   invariant(
     isValidPostAttributes(attributes),
